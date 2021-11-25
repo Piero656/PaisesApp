@@ -1,0 +1,60 @@
+<div class="alert alert-info" *ngIf="!pais; else divPais">
+    espere por favor...
+</div>
+
+<ng-template #divPais>
+    <div class="row">
+        <div class="col-12">
+            <h2>País: <small>{{pais.nativeName}}</small></h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <h4>Bandera</h4>
+            <img [src]="pais.flag" class="img-thumbnail" alt="pais.nativeName">
+        </div>
+        <div class="col">
+            <h4>Información: </h4>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <strong> Población: </strong> {{pais.population | number}}
+                </li>
+                <li class="list-group-item">
+                    <strong> Capital: </strong> {{pais.capital}}
+                </li>
+                <li class="list-group-item">
+                    <strong> Region: </strong> {{pais.region}}
+                </li>
+                <li class="list-group-item">
+                    <strong> SubRegion: </strong> {{pais.subregion}}
+                </li>
+                <li class="list-group-item">
+                    <strong> Moneda: </strong> {{pais.currencies[0].name}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3>
+        Traducciones
+    </h3>
+    <div class="row">
+        <div class="col">
+            <span class="badge bg-primary mr-1">{{ pais.translations.de}}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations.es}}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations.fa}}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations.fr}}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations.hr}}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations.hu}}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations.ja}}</span>
+            <span class="badge bg-primary mr-1">{{ pais.translations.pt}}</span>
+        </div>
+    </div>
+
+    <pre class="mt-5">
+        {{pais | json}}
+    </pre>
+
+</ng-template>
